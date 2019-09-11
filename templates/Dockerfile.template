@@ -16,10 +16,13 @@
 FROM {{ .From }}
 
 {{- $nfs := index .Packages "nfs-server" }}
+
 ENV NFS_VERSION {{ $nfs.Version }}
 
+ENV C2D_RELEASE={{ $nfs.Minor }}
+
 RUN set -x && \
-    apt-get update && apt-get install -qq -y nfs-kernel-server=$NFS_VERSION && \
+    apt-get update && apt-get install -qq -y nfs-kernel-server=${NFS_VERSION} && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /exports
 
