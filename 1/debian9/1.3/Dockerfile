@@ -14,10 +14,13 @@
 # limitations under the License.
 
 FROM gcr.io/google-appengine/debian9
+
 ENV NFS_VERSION 1:1.3.4-2.1
 
+ENV C2D_RELEASE=1.3.4
+
 RUN set -x && \
-    apt-get update && apt-get install -qq -y nfs-kernel-server=$NFS_VERSION && \
+    apt-get update && apt-get install -qq -y nfs-kernel-server=${NFS_VERSION} && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /exports
 
