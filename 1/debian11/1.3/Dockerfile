@@ -13,14 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/google-appengine/debian9
+FROM gcr.io/google-appengine/debian11
 
-ENV NFS_VERSION 1:1.3.4-2.1
+ENV NFS_VERSION 1:1.3.4-6
 
 ENV C2D_RELEASE 1.3.4
 
 RUN set -x && \
-    apt-get update && apt-get install -qq -y nfs-kernel-server=${NFS_VERSION}* && \
+    apt-get update && apt-get install -qq -y openssl nfs-kernel-server=${NFS_VERSION}* && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /exports
 

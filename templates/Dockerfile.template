@@ -23,7 +23,7 @@ ENV NFS_VERSION {{ $nfs.Version }}
 ENV C2D_RELEASE {{ $c2dRelease }}
 
 RUN set -x && \
-    apt-get update && apt-get install -qq -y nfs-kernel-server=${NFS_VERSION}* && \
+    apt-get update && apt-get install -qq -y openssl nfs-kernel-server=${NFS_VERSION}* && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /exports
 
