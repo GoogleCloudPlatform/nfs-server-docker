@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/google-appengine/debian11
+FROM marketplace.gcr.io/google/debian11
 
 ENV NFS_VERSION 1:1.3.4-6
 
